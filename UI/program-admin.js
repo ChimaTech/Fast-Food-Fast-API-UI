@@ -1,6 +1,6 @@
 // GoTO Create Food Function
 function goCreateFood() {
-  location.assign("admin-page.html#sidebar-notification");
+  location.assign('admin-page.html#sidebar-notification');
 }
 
 
@@ -12,16 +12,14 @@ function goManageOrder() {
 
 // Add Food Function
 function addFood() {
-
-  let foodName = document.querySelector('#sidebar-notification input[name="name"]').value;
-  let priceTag = document.querySelector('#sidebar-notification input[name="price"]').value;
-  let imageURL = document.querySelector('#sidebar-notification input[name="image"]').value;
-  let comment = document.querySelector("p.comment");
-  let foodEntryPoint = document.querySelector('section#editor-food-boxes div.foods-editors');
+  const foodName = document.querySelector('#sidebar-notification input[name="name"]').value;
+  const priceTag = document.querySelector('#sidebar-notification input[name="price"]').value;
+  const imageURL = document.querySelector('#sidebar-notification input[name="image"]').value;
+  const comment = document.querySelector('p.comment');
+  const foodEntryPoint = document.querySelector('section#editor-food-boxes div.foods-editors');
 
   if (foodName.length > 0 && priceTag.length > 0 && imageURL.length > 4) {
-
-    let foodEntryDIV = document.createElement('div'); // Creates Food Entry DIV
+    const foodEntryDIV = document.createElement('div'); // Creates Food Entry DIV
     foodEntryDIV.setAttribute('class', 'food-entry'); // Set class
     foodEntryDIV.setAttribute('id', foodName);
 
@@ -32,108 +30,93 @@ function addFood() {
     foodEntryPoint.appendChild(foodEntryDIV);
 
     // Clear the form
-    let foodNameInput = document.querySelector('#sidebar-notification input[name="name"]');
-    let priceTagInput = document.querySelector('#sidebar-notification input[name="price"]');
-    let imageURLInput = document.querySelector('#sidebar-notification input[name="image"]');
+    const foodNameInput = document.querySelector('#sidebar-notification input[name="name"]');
+    const priceTagInput = document.querySelector('#sidebar-notification input[name="price"]');
+    const imageURLInput = document.querySelector('#sidebar-notification input[name="image"]');
 
-    foodNameInput.value = ``;
-    priceTagInput.value = ``;
-    imageURLInput.value = ``;
-    comment.innerHTML = ``;
+    foodNameInput.value = '';
+    priceTagInput.value = '';
+    imageURLInput.value = '';
+    comment.innerHTML = '';
   } else {
-
-    comment.innerHTML = `You have not completed the form yet.`;
+    comment.innerHTML = 'You have not completed the form yet.';
   }
-
 }
 
 // UnHide Editor Function
 function unHideEditor(event) {
-  let editor = event.target.parentNode.parentNode.querySelector( `div.editor-inputs.hide` );
-  editor.setAttribute('class','editor-inputs unhide');
-
+  const editor = event.target.parentNode.parentNode.querySelector('div.editor-inputs.hide');
+  editor.setAttribute('class', 'editor-inputs unhide');
 }
 
 // Hide Editor Function
 function hideEditor(event) {
-
-  let editor = event.target.parentNode.parentNode.parentNode;
-  editor.setAttribute('class','editor-inputs hide');
-
+  const editor = event.target.parentNode.parentNode.parentNode;
+  editor.setAttribute('class', 'editor-inputs hide');
 }
 
 // Rename Function
 function reName(event) {
+  const foodName = event.target.parentNode.querySelector('input[name="name"]').value;
 
-  let foodName = event.target.parentNode.querySelector( `input[name="name"]` ).value;
 
-
-  if ( foodName.length > 0 ) {
-
-    let foodEntryDIV = event.target.parentNode.parentNode.parentNode.parentNode;
+  if (foodName.length > 0) {
+    const foodEntryDIV = event.target.parentNode.parentNode.parentNode.parentNode;
 
     foodEntryDIV.setAttribute('id', foodName); // Change Food Entry DIV's ID attribute
 
-    let label = foodEntryDIV.querySelector(`label`);
-    let imageElt = foodEntryDIV.querySelector(`img`);
+    const label = foodEntryDIV.querySelector('label');
+    const imageElt = foodEntryDIV.querySelector('img');
 
-    label.setAttribute(`for`,foodName); // Change label
+    label.setAttribute('for', foodName); // Change label
     label.innerHTML = `${foodName}`; // Change label
 
-    imageElt.setAttribute(`alt`,foodName); // Change Image Alt attribute
+    imageElt.setAttribute('alt', foodName); // Change Image Alt attribute
 
     // Clear Name Input field
-    let clearNameField = event.target.parentNode.querySelector( `input[name="name"]` );
-    clearNameField.value = ``;
-
+    const clearNameField = event.target.parentNode.querySelector('input[name="name"]');
+    clearNameField.value = '';
   }
-
 }
 
 // RePrice Function
 function rePrice(event) {
+  const foodPriceString = event.target.parentNode.querySelector('input[name="price"]').value;
+  const foodPrice = Number(foodPriceString);
 
-  let foodPriceString = event.target.parentNode.querySelector( `input[name="price"]` ).value;
-  let foodPrice = Number( foodPriceString );
-
-  if ( foodPriceString.length > 0 ) {
-
-    let foodEntryDIV = event.target.parentNode.parentNode.parentNode.parentNode;
+  if (foodPriceString.length > 0) {
+    const foodEntryDIV = event.target.parentNode.parentNode.parentNode.parentNode;
 
     // Change figcaption
-    let figCaption = foodEntryDIV.querySelector( `figcaption` );
-    figCaption.setAttribute(`class`, `${foodPrice}`);
+    const figCaption = foodEntryDIV.querySelector('figcaption');
+    figCaption.setAttribute('class', `${foodPrice}`);
     figCaption.innerHTML = `Price: $${foodPrice}.00`;
 
     // Clear Price Input field
-    let clearPriceField = event.target.parentNode.querySelector( `input[name="price"]` );
-    clearPriceField.value = ``;
-
+    const clearPriceField = event.target.parentNode.querySelector('input[name="price"]');
+    clearPriceField.value = '';
   }
-
 }
 
 // ReImage Function
 function reImage(event) {
-  let imageURL = event.target.parentNode.querySelector( `input[name="image"]` ).value;
+  const imageURL = event.target.parentNode.querySelector('input[name="image"]').value;
 
-  if ( imageURL.length > 4 ) {
-    let foodEntryDIV = event.target.parentNode.parentNode.parentNode.parentNode;
+  if (imageURL.length > 4) {
+    const foodEntryDIV = event.target.parentNode.parentNode.parentNode.parentNode;
 
     // Change Image URL
-    let imageElt = foodEntryDIV.querySelector(`img`);
-    imageElt.setAttribute(`src`,`${imageURL}`);
+    const imageElt = foodEntryDIV.querySelector('img');
+    imageElt.setAttribute('src', `${imageURL}`);
 
     // Clear Image URL input field
-    let removeImageURLField = event.target.parentNode.querySelector( `input[name="image"]` );
-    removeImageURLField.value = ``;
-
+    const removeImageURLField = event.target.parentNode.querySelector('input[name="image"]');
+    removeImageURLField.value = '';
   }
-
 }
 
 // DeleteFood Function
 function deleteFood(event) {
-  let foodEntryDIV = event.target.parentNode.parentNode.parentNode;
+  const foodEntryDIV = event.target.parentNode.parentNode.parentNode;
   foodEntryDIV.remove(); // Food Entry from the parentNode
 }
