@@ -1,6 +1,6 @@
-import usersDB from '../servers/db/users-db'; // Imports Users dataBase module
-import sessionsDB from '../servers/db/sessions-db'; // Imports sessions dataBase module
-import encodeStr from '../servers/appControllers/encodeStr';
+import usersDB from '../servers/models/users-db'; // Imports Users dataBase module
+import sessionsDB from '../servers/models/sessions-db'; // Imports sessions dataBase module
+import encodeStr from '../servers/controllers/encodeStr';
 
 process.env.NODE_ENV = 'test'; // Imports `encodeStr` function
 

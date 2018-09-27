@@ -1,6 +1,6 @@
-import ordersDB from '../servers/db/orders-db'; // Imports orders dataBase module
-import sessionsDB from '../servers/db/sessions-db'; // Imports sessions dataBase module
-import encodeStr from '../servers/appControllers/encodeStr';
+import ordersDB from '../servers/models/orders-db'; // Imports orders dataBase module
+import sessionsDB from '../servers/models/sessions-db'; // Imports sessions dataBase module
+import encodeStr from '../servers/controllers/encodeStr';
 
 process.env.NODE_ENV = 'test'; // Imports `encodeStr` function
 

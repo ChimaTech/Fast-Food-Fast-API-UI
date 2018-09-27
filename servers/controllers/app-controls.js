@@ -1,6 +1,6 @@
-import usersDB from '../db/users-db'; // Imports Users dataBase module
-import ordersDB from '../db/orders-db'; // Imports orders dataBase module
-import sessionsDB from '../db/sessions-db'; // Imports sessions dataBase module
+import usersDB from '../models/users-db'; // Imports Users dataBase module
+import ordersDB from '../models/orders-db'; // Imports orders dataBase module
+import sessionsDB from '../models/sessions-db'; // Imports sessions dataBase module
 import encodeStr from './encodeStr'; // Imports `encodeStr` function
 import searchUser from './searchUser'; // Imports `searchUser` function
 

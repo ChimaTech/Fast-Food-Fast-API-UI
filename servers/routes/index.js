@@ -1,5 +1,5 @@
 import express from 'express'; // Imports the `Express` module
-import appController from '../appControllers/app-controls'; // Imports the `App Controls` module
+import appController from '../controllers/app-controls'; // Imports the `App Controls` module
 
 
 // Create a `route` Handler with express.Router(). This will act like the:
