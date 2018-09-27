@@ -1,15 +1,14 @@
 // Accept Orders Function
 function acceptFunc(event) {
-
   // Get event targets Title Span
-  let listItem = event.target.parentNode;
-  let listItemTitle = event.target.parentNode.querySelector( `span` ).innerHTML;
+  const listItem = event.target.parentNode;
+  const listItemTitle = event.target.parentNode.querySelector('span').innerHTML;
 
   // Get the entry point of the Accepted Orders List
-  let listEntryPoint = document.querySelector(`div.list-manager.accepted-orders ol`);
+  const listEntryPoint = document.querySelector('div.list-manager.accepted-orders ol');
 
   // Create a newListItem
-  let newListItem = document.createElement(`li`);
+  const newListItem = document.createElement('li');
   newListItem.innerHTML = `<span>${listItemTitle}</span><button type="button" name="complete" onclick="completeFunc(event)">Complete</button>`; // Set HTML content of the newListItem
 
   // Appen newListItem at the listEntryPoint of Accepted orders
@@ -17,36 +16,33 @@ function acceptFunc(event) {
 
   // Remove listItem from Incoming Orders
   listItem.remove();
-
 }
 
 
 // Decline Orders Function
 function declineFunc(event) {
-  let listItem = event.target.parentNode; // Get event targets Title Span
+  const listItem = event.target.parentNode; // Get event targets Title Span
   listItem.remove(); // Remove listItem from Incoming Orders
 }
 
 
 // Complete Order Function
 function completeFunc(event) {
-
   // Get event targets Title Span
-  let listItem = event.target.parentNode;
-  let listItemTitle = event.target.parentNode.querySelector( `span` ).innerHTML;
+  const listItem = event.target.parentNode;
+  const listItemTitle = event.target.parentNode.querySelector('span').innerHTML;
 
 
-let listEntryPoint = document.querySelector(`div.list-manager.completed-orders ol`);
-let ListFirstChild = listEntryPoint.firstElementChild;
+  const listEntryPoint = document.querySelector('div.list-manager.completed-orders ol');
+  const ListFirstChild = listEntryPoint.firstElementChild;
 
-// Create a newListItem
-let newListItem = document.createElement(`li`);
-newListItem.innerHTML = `<span>${listItemTitle}</span>`; // Set HTML content of the newListItem
+  // Create a newListItem
+  const newListItem = document.createElement('li');
+  newListItem.innerHTML = `<span>${listItemTitle}</span>`; // Set HTML content of the newListItem
 
-// Appen newListItem at the listEntryPoint of Accepted orders
-listEntryPoint.insertBefore(newListItem,ListFirstChild );
+  // Appen newListItem at the listEntryPoint of Accepted orders
+  listEntryPoint.insertBefore(newListItem, ListFirstChild);
 
-// Remove listItem from Incoming Orders
-listItem.remove();
-
+  // Remove listItem from Incoming Orders
+  listItem.remove();
 }
